@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand Detection with MediaPipe</title>
+    <link href="/static/css/tailwind.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 text-white">
+    <div class="container mx-auto py-10 text-center">
+        <h1 class="text-4xl font-bold mb-5">Hand Detection with OpenCV and MediaPipe</h1>
+        <div class="flex justify-center">
+            <div class="bg-black p-5 rounded-lg">
+                <img id="videoElement" src="{{ url_for('video_feed') }}" class="rounded-lg">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
