@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,29 +12,29 @@
             color: white;
             font-family: Arial, sans-serif;
         }
-        h1 {
-            margin-top: 20px;
-            text-align: center;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+
         #videoElement {
             border-radius: 10px;
             margin-top: 20px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            /* New styles to increase height and maintain ratio */
+            width: 100%;
+            height: auto;
+            max-height: 70vh; /* Set a maximum height relative to viewport */
+            min-height: 400px; /* Set a minimum height for smaller screens */
+            object-fit: cover; /* Ensures the video fills the space while maintaining aspect ratio */
         }
     </style>
 </head>
+
 <body>
-    <div class="container mx-auto py-10">
-        <h1 class="text-4xl font-bold">Hand Detection</h1>
-        <div class="mt-6">
+    <div class="container mx-auto py-10 px-4">
+        <h1 class="text-3xl md:text-4xl font-bold text-center">Hand Detection</h1>
+        <div class="mt-6 w-full max-w-lg">
+            <!-- Adjust width and max-width for responsive behavior -->
             <img id="videoElement" src="/video_feed" class="shadow-lg">
         </div>
     </div>
 </body>
+
 </html>
