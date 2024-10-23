@@ -11,29 +11,54 @@
             background-color: #1a202c;
             color: white;
             font-family: Arial, sans-serif;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            position: absolute;
+            top: 0;
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        #videoContainer {
+            flex-grow: 1; /* Video container takes up remaining space */
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         #videoElement {
-            border-radius: 10px;
-            margin-top: 20px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            /* New styles to increase height and maintain ratio */
             width: 100%;
-            height: auto;
-            max-height: 70vh; /* Set a maximum height relative to viewport */
-            min-height: 400px; /* Set a minimum height for smaller screens */
-            object-fit: cover; /* Ensures the video fills the space while maintaining aspect ratio */
+            height: 100%;
+            object-fit: cover; /* Fill the container while maintaining aspect ratio */
+            max-height: 100vh; /* Ensures it doesn't exceed the viewport height */
         }
     </style>
 </head>
 
 <body>
-    <div class="container mx-auto py-10 px-4">
-        <h1 class="text-3xl md:text-4xl font-bold text-center">Hand Detection</h1>
-        <div class="mt-6 w-full max-w-lg">
-            <!-- Adjust width and max-width for responsive behavior -->
-            <img id="videoElement" src="/video_feed" class="shadow-lg">
-        </div>
+    <header>
+        <h1>Hand Detection</h1>
+    </header>
+
+    <div id="videoContainer">
+        <!-- Full-screen video element -->
+        <img id="videoElement" src="/video_feed" class="shadow-lg">
     </div>
 </body>
 
