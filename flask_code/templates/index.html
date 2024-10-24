@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,55 +10,30 @@
             background-color: #1a202c;
             color: white;
             font-family: Arial, sans-serif;
-            height: 100vh; /* Full viewport height */
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
         }
-
-        header {
-            width: 100%;
-            text-align: center;
-            padding: 10px 0;
-            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
-            position: absolute;
-            top: 0;
-            z-index: 10;
-        }
-
         h1 {
-            font-size: 2rem;
-            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
         }
-
-        #videoContainer {
-            flex-grow: 1; /* Video container takes up remaining space */
-            width: 100%;
+        .container {
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
         }
-
         #videoElement {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Fill the container while maintaining aspect ratio */
-            max-height: 100vh; /* Ensures it doesn't exceed the viewport height */
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <h1>Hand Detection</h1>
-    </header>
-
-    <div id="videoContainer">
-        <!-- Full-screen video element -->
-        <img id="videoElement" src="/video_feed" class="shadow-lg">
+    <div class="container mx-auto py-10">
+        <h1 class="text-4xl font-bold">Hand Detection with OpenCV & MediaPipe</h1>
+        <div class="mt-6">
+            <img id="videoElement" src="/video_feed" class="shadow-lg">
+        </div>
     </div>
 </body>
-
 </html>
