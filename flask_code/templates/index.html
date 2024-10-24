@@ -10,28 +10,69 @@
             background-color: #1a202c;
             color: white;
             font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            text-align: center; /* Center text alignment */
         }
         h1 {
             margin-top: 20px;
-            text-align: center;
+            font-size: 2.5rem; /* Adjusted for better visibility */
         }
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            padding: 10px;
         }
         #videoElement {
+            width: 100%;
+            max-width: 600px; /* For web views */
+            height: auto;
             border-radius: 10px;
             margin-top: 20px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
         }
+        
+        /* Media query for mobile screens */
+        @media (max-width: 768px) {
+            #videoElement {
+                max-width: none;  /* No restriction on mobile */
+                height: 70vh;     /* Make the video element taller on mobile */
+            }
+        }
+
+        /* Media query for larger mobile screens, like iPhone XR, Galaxy S8+ */
+        @media (max-width: 414px) {
+            #videoElement {
+                height: 80vh;     /* Further elongate for specific mobile sizes */
+            }
+        }
+
+        /* Media query for large screens like Google Nest Hub or large displays */
+        @media (min-width: 1024px) {
+            #videoElement {
+                max-width: 900px; /* Make the video larger for big displays */
+                height: auto;     /* Maintain aspect ratio */
+                margin-top: 0;
+            }
+        }
+
+        /* Media query for extra-large displays */
+        @media (min-width: 1440px) {
+            #videoElement {
+                max-width: 1080px; /* For very large displays, make it even bigger */
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container mx-auto py-10">
-        <h1 class="text-4xl font-bold">Hand Detection with OpenCV & MediaPipe</h1>
-        <div class="mt-6">
+    <div class="container">
+        <h1 class="text-4xl font-bold">Hand Detection</h1>
+        <div class="mt-6 w-full">
             <img id="videoElement" src="/video_feed" class="shadow-lg">
         </div>
     </div>
