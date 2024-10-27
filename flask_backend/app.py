@@ -5,6 +5,7 @@ import mediapipe as mp
 import math
 import time
 import random
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -122,6 +123,14 @@ def reset_score():
     global score
     score = 0
     return 'Score reset to 0.'
+
+@app.route('/video_dimensions')
+def video_dimensions():
+    cap = cv2.VideoCapture(0)
+    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+    cap.release()
+    return json.dumps({'width': width, 'height': height})
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
